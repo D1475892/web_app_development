@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
+from app.models.transaction import TransactionModel
 
 bp = Blueprint('income', __name__)
 
@@ -6,10 +7,31 @@ bp = Blueprint('income', __name__)
 def income():
     """
     新增收入:
-    GET: 渲染 income.html 顯示表單
-    POST: 取得表單內容 (amount, category, transaction_date)
-          驗證資料是否合法，若非法則 flash 錯誤並回傳表單
-          合法則透過 TransactionModel.create('income', ...) 存入資料庫
-          寫入成功後重新導向至首頁 (main.index)
     """
-    pass
+    if request.method == 'POST':
+        amount_str = request.form.get('amount')
+        category = request.form.get('category')
+        transaction_date = request.form.get('transaction_date')
+        
+        # 簡易驗證
+        if not amount_str or not category or not transaction_date:
+            flash("所有欄位皆為必填！", "danger")
+            return render_template('income.html')
+            
+        try:
+            amount = float(amount_str)
+            if amount <= 0:
+                raise ValueError("金額必須大於 0")
+        except ValueError:
+            flash("請輸入有效的金額數字（需大於 0）！", "danger")
+            return render_template('income.html')
+            
+        # 寫入資料庫
+        try:
+            TransactionModel.create('income', amount, category, transaction_date)
+            flash("收入新增成功！", "success")
+            return redirect(url_for('main.index'))
+        except Exception as e:
+            flash(f"新增失敗: {str(e)}", "danger")
+    
+    return render_template('income.html')

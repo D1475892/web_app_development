@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-9 text-center">
+        <div class="card balance-card mb-4 p-5">
+            <h5 class="text-white-50">當前總餘額</h5>
+            <div class="balance-amount my-3">NT$ {{ "{:,.0f}".format(balance) }}</div>
+            <div class="d-flex justify-content-center gap-5 mt-4">
+                <div>
+                    <span class="text-white-50 small">總收入</span><br>
+                    <span class="fs-4 text-success">NT$ {{ "{:,.0f}".format(total_income) }}</span>
+                </div>
+                <div>
+                    <span class="text-white-50 small">總支出</span><br>
+                    <span class="fs-4 text-danger">NT$ {{ "{:,.0f}".format(total_expense) }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="d-flex justify-content-center flex-wrap gap-3 mt-5">
+            <a href="{{ url_for('income.income') }}" class="btn btn-success action-btn px-4 py-2 fs-5">➕ 新增收入</a>
+            <a href="{{ url_for('expense.expense') }}" class="btn btn-danger action-btn px-4 py-2 fs-5">➖ 新增支出</a>
+            <a href="{{ url_for('report.history') }}" class="btn btn-outline-dark action-btn px-4 py-2 fs-5">📋 查看明細</a>
+            <a href="{{ url_for('report.statistics') }}" class="btn btn-outline-dark action-btn px-4 py-2 fs-5">📊 統計圖表</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

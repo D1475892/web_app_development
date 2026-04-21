@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h3 class="mb-4 text-success fw-bold">新增收入</h3>
+            <form action="{{ url_for('income.income') }}" method="POST">
+                <div class="mb-3">
+                    <label for="amount" class="form-label text-muted">金額</label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="number" step="0.01" class="form-control" id="amount" name="amount" required placeholder="例如: 50000">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label text-muted">來源 (分類)</label>
+                    <input type="text" class="form-control" id="category" name="category" required placeholder="例如: 薪資、獎金、投資">
+                </div>
+                <div class="mb-4">
+                    <label for="transaction_date" class="form-label text-muted">日期</label>
+                    <input type="date" class="form-control" id="transaction_date" name="transaction_date" required>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success action-btn p-2">儲存收入</button>
+                    <a href="{{ url_for('main.index') }}" class="btn btn-light action-btn p-2">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    // 預設填入今日日期
+    document.getElementById('transaction_date').valueAsDate = new Date();
+</script>
+{% endblock %}

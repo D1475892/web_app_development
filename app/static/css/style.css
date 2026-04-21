@@ -1,0 +1,36 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+.balance-card {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+}
+.balance-amount {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.08);
+}
+.action-btn {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.action-btn:hover {
+    opacity: 0.9;
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(0,0,0,.03);
+}
