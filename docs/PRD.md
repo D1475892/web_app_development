@@ -55,8 +55,8 @@
 
 | 角色 | 姓名 | 負責事項 |
 | --- | --- | --- |
-| Project Manager (PM) | | 需求規劃、進度控管 |
-| UI/UX Designer | | 介面設計、使用者體驗規劃 |
-| Frontend Developer | | 網頁呈現 (Jinja2, HTML, CSS 面) |
-| Backend Developer | | 系統邏輯、Flask API 與 SQLite 資料庫建置 |
-| QA | | 系統操作測試、除錯回報 |
+| Project Manager (PM) | 張琇茵 | 需求規劃、進度控管 |
+| UI/UX Designer | 張琇茵 | 介面設計、使用者體驗規劃 |
+| Frontend Developer | 張琇茵 | 網頁呈現 (Jinja2, HTML, CSS 面) |
+| Backend Developer | 張琇茵 | 系統邏輯、Flask API 與 SQLite 資料庫建置 |
+| QA | 張琇茵 | 系統操作測試、除錯回報 |
